@@ -36,10 +36,10 @@ if an argument is missing, the default is used.
 
 
 ## Examples
-a,b are 1D histograms\\
-M is the ground cost matrix
-reg is the regularization
-numIter and tresh correspond to number of iterations and treshold on the error for Sinkhorn Algorithm
+>#a,b are 1D histograms
+>#M is the ground cost matrix
+>#reg is the regularization
+>#numIter and tresh correspond to number of iterations and treshold on the error for Sinkhorn Algorithm
 
 >grad = gradient_chol(a,b,M,reg,numIter,tresh)
 
