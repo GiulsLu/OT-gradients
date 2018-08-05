@@ -36,12 +36,12 @@ if an argument is missing, the default is used.
 
 
 ## Examples
-#a,b are 1D histograms
-#M is the ground cost matrix
-#reg is the regularization
-#numIter and tresh correspond to number of iterations and treshold on the error for Sinkhorn Algorithm
+a,b are 1D histograms\\
+M is the ground cost matrix
+reg is the regularization
+numIter and tresh correspond to number of iterations and treshold on the error for Sinkhorn Algorithm
 
-grad = gradient_chol(a,b,M,reg,numIter,tresh)
+>grad = gradient_chol(a,b,M,reg,numIter,tresh)
 
 ## References 
 [1] Cuturi, M. (2013). Sinkhorn distances: Lightspeed computation of optimal transport. In Advances in Neural Information Processing Systems (pp. 2292-2300).
