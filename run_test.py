@@ -73,8 +73,8 @@ if __name__ == '__main__':
 
         reg = 0.02
         L_GD = 100
-        L_AD = 10
-        0
+        L_AD = 30
+        
         tresh = 1e-11
         for idx_n, n in enumerate(dim1):
             for idx_m, m in enumerate(dim2):
