@@ -4,19 +4,24 @@ This repository provides an easy tool for testing computational time and accurac
 
 One method leverages the analytic form of the gradient [4], [5], obtained through the Implicit Function Theorem; the linear system is solved using Cholesky factorization.
 
-The other method uses Automatic Differentiation of Sinkhorn algorithm [3] : we included the function for convenience, to provide an 'easy-to-play' timing test but we do not claim _any novelty_ in the algorithm. 
+The other method uses Automatic Differentiation of Sinkhorn algorithm, proposed in [3].  
 
 
-## Getting Started
 
 
-### Prerequisites
+### Dependencies
 
-To run the codes and use the functions in this respository you will need to install Python Optimal Transport Library first (https://github.com/rflamary/POT).
+To run the codes and use the functions in this respository you will need to install:
+
+Python Optimal Transport Library (https://github.com/rflamary/POT)
+
+PyTorch
+
+
 
 
 ## Running the tests
-- File run_regimes.py contains a code that automatically runs time and accuracy experiments with pre-set choices of parameters and outputs plots with the performance. Pre-set parameters are the following:
+- File run_test.py contains a code that automatically runs time and accuracy experiments with pre-set choices of parameters and outputs plots with the performance. Pre-set parameters are the following:
   n = dimension of one histogram
   m = dimension of the other histogram
   nr_seeds = number of different seeds on which the experiment is run
@@ -25,7 +30,7 @@ To run the codes and use the functions in this respository you will need to inst
   
   
 
-- File regimes.py is version with command-line interfaces: parameters can be passed in when running the program; e.g.:
+- File test.py is version with command-line interfaces: parameters can be passed in when running the program; e.g.:
 
 python regimes.py -n 200 1000 5000 -m 200 500 1000 -nr_seeds 3 -iter_AD 30 -reg 0.02
 
@@ -44,7 +49,7 @@ if an argument is missing, the default is used.
 
 -numIter and tresh correspond to number of iterations and treshold on the error for Sinkhorn Algorithm
 
->grad = gradient_chol(a,b,M,reg,numIter,tresh)
+`grad = gradient_chol(a,b,M,reg,numIter,tresh)`
 
 ## References 
 [1] Cuturi, M. (2013). Sinkhorn distances: Lightspeed computation of optimal transport. In Advances in Neural Information Processing Systems (pp. 2292-2300).
