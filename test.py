@@ -14,7 +14,7 @@ import time
 
 import ot
 import torch
-from gradients_corretto import gradient_chol, grad_AD_double
+from gradients import gradient_chol, grad_AD_double
 
 
 def normalize(v):
