@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
     dim1 = [200, 1000, 2500, 5000, 10000, 25000]
     dim2 = [200, 500, 1000, 2000, 5000]
-    seeds = [995, 996, 997, 998]
+    seeds = [995, 996, 997, 998, 999]
     gd_time = np.zeros((len(seeds), len(dim1), len(dim2)))
     ad_time = np.zeros((len(seeds), len(dim1), len(dim2)))
     gd_score = np.zeros((len(seeds), len(dim1), len(dim2)))
