@@ -15,7 +15,7 @@ To run the codes and use the functions in this respository you will need to inst
 
 Python Optimal Transport Library (https://github.com/rflamary/POT)
 
-PyTorch
+PyTorch (https://pytorch.org)
 
 
 
