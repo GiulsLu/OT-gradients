@@ -21,7 +21,7 @@ def normalize(v):
     return v / sum(v)
 
 
-def create_my_plot(ad_time, gd_time):
+def create_my_plot(ad_time, gd_time, ad_score):
     FF = lambda a, b: sc.sign(a - b) * a/b
 
     ad_time[ad_time==0] = 9
