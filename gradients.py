@@ -77,10 +77,8 @@ def gradient_chol(a, b, M, reg, numIter, tresh):
         grada = D1i * f
         TDhalf = np.multiply(T[:, 0:m - 1].T, np.sqrt(D1i))
         K = np.diag(D2) - TDhalf @ TDhalf.T
-        try:
-            Lchol = scl.cho_factor(K, lower=True)
-        except np.linalg.linalg.LinAlgError:
-            Lchol = scl.cho_factor(K+1e-15*np.eye(K.shape[0]), lower=True)
+
+        Lchol = scl.cho_factor(K+1e-15*np.eye(K.shape[0]), lower=True)
 
         grada = grada + D1i * (T[:, 0:m-1] @ scl.cho_solve(Lchol, T[:, 0:m-1].T @ grada))
 
@@ -91,10 +89,8 @@ def gradient_chol(a, b, M, reg, numIter, tresh):
         f = -np.sum(L, axis=1) + T[:, 0:m - 1] @ ((np.sum(L[:, 0:m - 1].T, axis=1)) * D2i)
         TDhalf = np.multiply(T[:, 0:m - 1], np.sqrt(D2i))
         K = np.diag(D1) - TDhalf @ TDhalf.T
-        try:
-            Lchol = scl.cho_factor(K, lower=True)
-        except np.linalg.linalg.LinAlgError:
-            Lchol = scl.cho_factor(K + 1e-15 * np.eye(K.shape[0]), lower=True)
+
+        Lchol = scl.cho_factor(K + 1e-15 * np.eye(K.shape[0]), lower=True)
 
         grada = scl.cho_solve(Lchol, f)
 
