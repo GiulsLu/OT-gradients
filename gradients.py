@@ -65,9 +65,9 @@ def gradient_chol(a, b, M, reg, numIter, tresh):
     m = b.shape[0]
     assert n == M.shape[0] and m == M.shape[1]
 
-    T = ot.sinkhorn(a, b, M, reg, method='sinkhorn', numItermax=numIter,
+    #T = ot.sinkhorn(a, b, M, reg, method='sinkhorn', numItermax=numIter,
                     stopThr=tresh)
-    #T = Tpytorch(w, a, M, reg, numIter, tresh)
+    T = Tpytorch(w, a, M, reg, numIter, tresh)
     # if m < n we use Sherman Woodbury formula
     if m < n:
         D1i = 1/(np.sum(T, axis=1))
