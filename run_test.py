@@ -98,10 +98,15 @@ if __name__ == '__main__':
                 gd_score[idx_seed, len(dim1) - idx_n - 1, idx_m] = la.norm(true_grad-v, 2)
 
                 # compute time for GD with timeit
-                t = timeit.Timer((functools.partial(gradient_chol, a, b, M, reg, L_GD, tresh)))
-                time_detected = t.timeit(number=20) / 20
-                print(time_detected)
+                #t = timeit.Timer((functools.partial(gradient_chol, a, b, M, reg, L_GD, tresh)))
+                #time_detected = t.timeit(number=20) / 20
+                #print(time_detected)
 
+                # compute time with time.time
+                t_init = time.time()
+                grad = gradient_chol(a, b, M, reg, L_GD, tresh)
+                t_end = time.time()
+                time_detected = t_end - t_init
                 gd_time[idx_seed, len(dim1) - idx_n - 1, idx_m] = time_detected
 
                 tM = torch.DoubleTensor(M)
@@ -116,10 +121,15 @@ if __name__ == '__main__':
                 ad_score[idx_seed, len(dim1) - idx_n - 1, idx_m] = la.norm(true_grad - v, 2)
 
                 # compute time for AD with timeit
-                t = timeit.Timer((functools.partial(grad_AD_double, a, tb, tM, reg, L_AD, tresh)))
-                time_detected = t.timeit(number=20) / 20
-                print(time_detected)
-
+                #t = timeit.Timer((functools.partial(grad_AD_double, a, tb, tM, reg, L_AD, tresh)))
+                #time_detected = t.timeit(number=20) / 20
+                #print(time_detected)
+                
+                t_init = time.time()
+                grad = grad_AD_double(a, tb, tM, reg, L_AD, tresh)
+                t_end = time.time()
+                time_detected = t_end - t_init
+                
                 #AD_time[dim1.shape[0]-idx_n-1, idx_m] = t2 - t1
                 ad_time[idx_seed, len(dim1) - idx_n - 1, idx_m] = time_detected
 
